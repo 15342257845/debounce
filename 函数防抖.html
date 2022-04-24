@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		
+	</head>
+	<body>
+		<input type="text"  id="d"/>
+		<script type="text/javascript">
+			
+//			函数防抖:延迟要执行的动作,若在延迟的这段时间内,再次触发,则取消之前开启的动作,重新计时
+			
+			let text=document.getElementById("d");
+			
+			let id;
+			
+			text.addEventListener("keyup",function(){
+				
+				let value=text.value;
+				
+				clearTimeout(id);
+				
+				id=setTimeout(function(){
+					sendAjax(value);
+				},300)
+			});
+			
+			function sendAjax(value){
+				console.log("发送了一次请求，内容为"+value+"")
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>
+
